@@ -1,0 +1,220 @@
+export type ProjTag = "ai" | "web" | "sys" | "cpp" | "hw" | "db";
+
+export interface Project {
+  icon: string;
+  tag: ProjTag;
+  tagLabel: string;
+  tagLabel2?: string;
+  title: string;
+  desc: string;
+  featured?: boolean;
+  screenshots?: string[];
+}
+
+export const tagStyles: Record<
+  ProjTag,
+  { text: string; bg: string; iconBg: string; c1: string; c2: string }
+> = {
+  ai: { text: "#a78bfa", bg: "rgba(183,156,255,0.12)", iconBg: "rgba(183,156,255,0.15)", c1: "#b79cff", c2: "#f72585" },
+  web: { text: "#60a5fa", bg: "rgba(26,108,245,0.12)", iconBg: "rgba(26,108,245,0.15)", c1: "#1a6cf5", c2: "#00d4ff" },
+  sys: { text: "#f472b6", bg: "rgba(247,37,133,0.1)", iconBg: "rgba(247,37,133,0.15)", c1: "#f72585", c2: "#fb923c" },
+  cpp: { text: "#00d4ff", bg: "rgba(0,212,255,0.08)", iconBg: "rgba(0,212,255,0.1)", c1: "#00d4ff", c2: "#1a6cf5" },
+  hw: { text: "#fb923c", bg: "rgba(255,140,0,0.1)", iconBg: "rgba(255,140,0,0.1)", c1: "#d97706", c2: "#fbbf24" },
+  db: { text: "#4ade80", bg: "rgba(0,200,100,0.08)", iconBg: "rgba(0,200,100,0.1)", c1: "#059669", c2: "#34d399" },
+};
+
+export const projects: Project[] = [
+  {
+    icon: "⚙️",
+    tag: "cpp",
+    tagLabel: "C++",
+    tagLabel2: "DS Lab",
+    title: "University Management System",
+    desc: "Fully custom console-based system — no STL. Built Hash Table (chaining), AVL Tree (room scheduling), weighted Graph (BFS, DFS, Dijkstra's), linked-list Queue (complaint ticketing), and Stack (messaging). Every module built from scratch using pure linked lists.",
+    featured: true,
+    screenshots: ["/shots/ums-cover.jpg"],
+  },
+  {
+    icon: "☁️",
+    tag: "sys",
+    tagLabel: "React",
+    tagLabel2: "Firebase",
+    title: "NimbusFM — Cloud File Manager",
+    desc: "Built during my internship at Hadi Textile Mills. Full-stack cloud file manager with role-based access (Admin/User/Guest), drag-and-drop upload, recycle bin with restore, sharing & permissions, activity logs, and an admin dashboard with storage analytics.",
+    featured: true,
+    screenshots: [
+      "/shots/cfm-login-new.jpg",
+      "/shots/cfm-share.jpg",
+      "/shots/cfm-admin-new.jpg",
+      "/shots/cfm-drive-new.jpg",
+    ],
+  },
+  {
+    icon: "📊",
+    tag: "ai",
+    tagLabel: "Python",
+    tagLabel2: "K-Means",
+    title: "Automated Exam Management System",
+    desc: "Tkinter-based exam scheduling system using K-Means clustering to group students, with a date-sheet generator, sortable columns, pagination, and search — my current Unsupervised Learning coursework project.",
+    screenshots: ["/shots/exam-cover.jpg"],
+  },
+  {
+    icon: "🧠",
+    tag: "ai",
+    tagLabel: "AI",
+    tagLabel2: "HTML/JS",
+    title: "Wumpus World Logic Agent",
+    desc: "Browser-based knowledge-based agent navigating Wumpus World using propositional logic and resolution refutation for real-time safe-path inference.",
+    screenshots: ["/shots/wumpus-cover.jpg"],
+  },
+  {
+    icon: "🔢",
+    tag: "ai",
+    tagLabel: "AI",
+    tagLabel2: "Python",
+    title: "Sudoku CSP Solver",
+    desc: "Constraint-satisfaction solver using Backtracking, Forward Checking & AC-3 arc consistency — solves easy to very-hard puzzles by pruning invalid states early.",
+    screenshots: ["/shots/sudoku-1.jpg", "/shots/sudoku-2.jpg", "/shots/sudoku-3.jpg"],
+  },
+  {
+    icon: "🗺️",
+    tag: "ai",
+    tagLabel: "Python",
+    tagLabel2: "Tkinter",
+    title: "Dynamic Pathfinding Agent",
+    desc: "Grid agent with A* & Greedy BFS, real-time visualization in Python. Supports dynamic obstacles, live re-planning, and animated rendering with Manhattan & Euclidean heuristics.",
+    screenshots: ["/shots/pathfinding-1.jpg", "/shots/pathfinding-2.jpg"],
+  },
+  {
+    icon: "🔐",
+    tag: "sys",
+    tagLabel: "OS Lab",
+    tagLabel2: "C · Ubuntu",
+    title: "Concurrent Banking System",
+    desc: "Multi-threaded banking system on Ubuntu. POSIX threads, semaphores & shared memory prevent race conditions in concurrent account operations.",
+    screenshots: ["/shots/banking-cover.jpg"],
+  },
+  {
+    icon: "🚪",
+    tag: "hw",
+    tagLabel: "Hardware",
+    tagLabel2: "Arduino",
+    title: "Auto Door System",
+    desc: "Smart door with ultrasonic proximity detection, obstacle safety logic, and Arduino-programmed trigger control — a real embedded hardware build.",
+    screenshots: [
+      "/shots/autodoor-1.jpg",
+      "/shots/autodoor-2.jpg",
+      "/shots/autodoor-3.jpg",
+      "/shots/autodoor-4.jpg",
+    ],
+  },
+  {
+    icon: "🌦️",
+    tag: "web",
+    tagLabel: "Vite",
+    tagLabel2: "Express",
+    title: "Weather App",
+    desc: "Built during my internship at Hadi Textile Mills. A full weather dashboard: search any city or use your location, save favourite cities, switch between °C and °F, and pick animated backgrounds. Tabs for current conditions with a 14-day forecast, hourly charts, details, an interactive map with rain, temperature, wind, cloud and pressure layers, monthly view, 12-month trends and live weather news. Deployed as separate frontend/backend services on Vercel.",
+    screenshots: [
+      "/shots/weather-1.jpg",
+      "/shots/weather-2.jpg",
+      "/shots/weather-3.jpg",
+      "/shots/weather-4.jpg",
+      "/shots/weather-5.jpg",
+    ],
+  },
+  {
+    icon: "🗄️",
+    tag: "db",
+    tagLabel: "SQL",
+    tagLabel2: "psql",
+    title: "Database Lab System",
+    desc: "Relational database design with ER diagrams (MS Visio), psql queries, normalization, and database server management.",
+    screenshots: ["/shots/dbms-cover.jpg"],
+  },
+  {
+    icon: "🎮",
+    tag: "cpp",
+    tagLabel: "C++",
+    tagLabel2: "OOP",
+    title: "C++ Games",
+    desc: "Stronghold Strategy Game (inheritance, polymorphism) + Bomberman Clone (2D arrays, game loop) — console-based with modular architecture.",
+    screenshots: ["/shots/cppgames-cover.jpg"],
+  },
+  {
+    icon: "🎯",
+    tag: "db",
+    tagLabel: "Java",
+    tagLabel2: "Swing",
+    title: "Number Guessing Game",
+    desc: "Java desktop game with difficulty levels, a countdown timer, attempt tracking, and a running score across rounds.",
+    screenshots: ["/shots/guess-game-1.jpg", "/shots/guess-game-2.jpg"],
+  },
+  {
+    icon: "🚆",
+    tag: "db",
+    tagLabel: "Java",
+    tagLabel2: "SQLite",
+    title: "Online Train Reservation System",
+    desc: "Desktop reservation system — login/auth, ticket booking with class & station selection, PNR-based cancellation, and a SQLite-backed database.",
+    screenshots: [
+      "/shots/train-login.jpg",
+      "/shots/train-dashboard.jpg",
+      "/shots/train-book.jpg",
+    ],
+  },
+  {
+    icon: "🎞️",
+    tag: "web",
+    tagLabel: "React",
+    tagLabel2: "UI Clone",
+    title: "Reelix — Streaming UI Clone",
+    desc: "Built during my internship at Hadi Textile Mills. Netflix-style movie & TV browsing interface — trending carousel, popular movies grid, ratings, and a watch-list ('+') interaction pattern.",
+    screenshots: ["/shots/reelix.jpg"],
+  },
+  {
+    icon: "🧮",
+    tag: "web",
+    tagLabel: "React",
+    tagLabel2: "UI Clone",
+    title: "Calculator",
+    desc: "Built during my internship at Hadi Textile Mills. Windows Calculator UI recreation — standard mode with memory functions (MC/MR/M+/M-/MS) and a history/memory side panel.",
+    screenshots: ["/shots/calculator.jpg"],
+  },
+  {
+    icon: "⏱️",
+    tag: "web",
+    tagLabel: "React",
+    tagLabel2: "Utility",
+    title: "Pro Timer — Stopwatch",
+    desc: "Built during my internship at Hadi Textile Mills. Stopwatch & lap timer with start/stop/lap/reset controls, keyboard shortcuts, average & best lap tracking, and CSV export.",
+    screenshots: ["/shots/stopwatch-1.jpg"],
+  },
+  {
+    icon: "💰",
+    tag: "web",
+    tagLabel: "React",
+    tagLabel2: "UI",
+    title: "Personal Finance Dashboard",
+    desc: "Finance overview UI — balance, income & expenses summary, budget breakdown by category, savings pots, and recurring bills tracking.",
+    screenshots: ["/shots/finance-dashboard.jpg"],
+  },
+  {
+    icon: "💬",
+    tag: "ai",
+    tagLabel: "AI",
+    tagLabel2: "Chat",
+    title: "Aether Chat — AI Chat with PDF",
+    desc: "An AI chat app with login and sign-up. Keep a history of chats in the sidebar (rename or delete them), attach a PDF and ask questions about it, and get neatly formatted answers, such as a short summary of a report.",
+    screenshots: ["/shots/aichat-1.jpg", "/shots/aichat-2.jpg"],
+  },
+  {
+    icon: "🌐",
+    tag: "web",
+    tagLabel: "React",
+    tagLabel2: "Vite",
+    title: "This Portfolio",
+    desc: "The very site you're looking at — React, TypeScript, Tailwind, and Framer Motion, with a 3D drag-rotate name, animated hero, and project spotlight carousel.",
+    screenshots: ["/shots/portfolio-shot.jpg"],
+  },
+];

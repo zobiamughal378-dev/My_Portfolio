@@ -1,0 +1,458 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #070d24;
+  color: #ffffff;
+  font-family: "Outfit", system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(111,211,240, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070d24;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(111,211,240, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(111,211,240, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #6fd3f0;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 35s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Grid pattern background */
+.bg-grid {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Radial spotlight */
+.spotlight {
+  background: radial-gradient(1000px 500px at 50% -10%, rgba(111,211,240, 0.18), transparent 60%);
+}
+
+/* Paint splash decorative blobs */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate(-10%, -10%) rotate(0deg);
+  }
+  50% {
+    transform: translate(10%, 10%) rotate(180deg);
+  }
+}
+.aurora {
+  animation: aurora 22s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+.float-y {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #6fd3f0, #ff9ec4, #b79cff, #4fc3d9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.shine {
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shine 3.5s ease-in-out infinite;
+}
+
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -4px;
+  height: 2px;
+  background: #6fd3f0;
+  transition: right 0.35s ease;
+}
+.link-underline:hover::after {
+  right: 0;
+}
+
+/* ---------- EAGLE + STORM (StormSky) ---------- */
+@keyframes eagle-fill {
+  0% { filter: grayscale(1) brightness(0.5) contrast(1.1); }
+  45% { filter: grayscale(1) brightness(0.65) contrast(1.1); }
+  75% { filter: grayscale(0.55) brightness(0.9) saturate(1.2); }
+  92% { filter: grayscale(0) brightness(1.1) saturate(1.5) drop-shadow(0 0 18px rgba(255, 200, 60, 0.7)); }
+  100% { filter: grayscale(1) brightness(0.5) contrast(1.1); }
+}
+
+.eagle-img {
+  animation: eagle-fill 9s ease-in-out infinite;
+  transition: filter 0.4s ease;
+}
+
+.eagle-red-img {
+  animation: none !important;
+  filter: grayscale(0) brightness(1.1) saturate(2.6) hue-rotate(-48deg) drop-shadow(0 0 26px rgba(255, 40, 60, 0.95)) !important;
+}
+
+@keyframes bolt-flash {
+  0% { opacity: 0; }
+  6% { opacity: 1; }
+  12% { opacity: 0.15; }
+  20% { opacity: 0.95; }
+  45% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.lightning-bolt {
+  animation: bolt-flash 0.65s ease-out forwards;
+  filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 26px #fff);
+}
+
+@keyframes thunder-shake {
+  0%, 100% { transform: translate(0, 0); }
+  15% { transform: translate(-7px, 4px); }
+  30% { transform: translate(6px, -5px); }
+  45% { transform: translate(-5px, -3px); }
+  60% { transform: translate(4px, 3px); }
+  80% { transform: translate(-2px, 1px); }
+}
+
+body.thunder-shake #root {
+  animation: thunder-shake 0.45s ease-out;
+}
+
+@keyframes bird-fly {
+  0% { transform: translate(-8vw, 0); }
+  50% { transform: translate(46vw, -3vh); }
+  100% { transform: translate(108vw, 1vh); }
+}
+
+.bird {
+  animation: bird-fly linear infinite;
+}
+
+@keyframes bird-flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.45); }
+}
+
+.bird-flap {
+  animation: bird-flap 0.55s ease-in-out infinite;
+  transform-origin: 20px 13px;
+}
+
+@keyframes flutter {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.35); }
+}
+
+.butterfly-wing-l { animation: flutter 0.5s ease-in-out infinite; transform-origin: 15px 13px; }
+.butterfly-wing-r { animation: flutter 0.5s ease-in-out infinite; transform-origin: 17px 13px; }
+
+/* eagle: flies (bobs) then descends and perches still like a statue, then takes off again */
+@keyframes eagle-perch-cycle {
+  0%   { transform: translateY(-40px) translateX(4px) rotate(-4deg) scale(1.06); }
+  10%  { transform: translateY(-58px) translateX(-6px) rotate(4deg) scale(1.1); }
+  22%  { transform: translateY(-28px) translateX(6px) rotate(-3deg) scale(1.04); }
+  34%  { transform: translateY(-46px) translateX(-4px) rotate(3deg) scale(1.08); }
+  48%  { transform: translateY(-14px) rotate(0deg) scale(1.02); }
+  58%  { transform: translateY(0px) rotate(0deg) scale(1); }
+  85%  { transform: translateY(0px) rotate(0deg) scale(1); }
+  93%  { transform: translateY(-10px) rotate(-2deg) scale(1.02); }
+  100% { transform: translateY(-40px) translateX(4px) rotate(-4deg) scale(1.06); }
+}
+.eagle-perch {
+  animation: eagle-perch-cycle 12s ease-in-out infinite;
+}
+
+/* Zobia's own mascot photo: gentle continuous float */
+@keyframes self-float-cycle {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-16px) rotate(1deg); }
+}
+.self-float {
+  animation: self-float-cycle 6s ease-in-out infinite;
+}
+
+/* smooth, calm scroll-hint pulse (replaces the jumpy bounce arrow) */
+@keyframes scroll-hint-fade {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(3px); }
+}
+.scroll-hint-fade {
+  animation: scroll-hint-fade 2.2s ease-in-out infinite;
+}
+
+@keyframes runner-gradient-spin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* colorful ambient background blobs */
+@keyframes glow-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
+}
+@keyframes glow-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, 4%) scale(1.1); }
+}
+@keyframes glow-drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -5%) scale(1.06); }
+}
+.glow-blob { animation: glow-drift-1 22s ease-in-out infinite; }
+.glow-blob-2 { animation: glow-drift-2 26s ease-in-out infinite; }
+.glow-blob-3 { animation: glow-drift-3 30s ease-in-out infinite; }
+
+
+/* ---------- BOOT SCREEN ---------- */
+@keyframes boot-flash {
+  0% { opacity: 0; }
+  35% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+@keyframes boot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* ---------- KINETIC NAME LETTERS ---------- */
+.kinetic-letter {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* ---------- HERO PORTRAIT: 3D rotating preview ring ---------- */
+.portrait-spot {
+  background: radial-gradient(circle at 50% 45%, rgba(111,211,240, 0.4), transparent 60%);
+  filter: blur(28px);
+  animation: spot-pulse 5s ease-in-out infinite;
+}
+@keyframes spot-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.film-stage { perspective: 1300px; }
+.film-ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: ring-spin 34s linear infinite;
+}
+@keyframes ring-spin {
+  from { transform: rotateY(0deg) rotateX(-6deg); }
+  to { transform: rotateY(360deg) rotateX(-6deg); }
+}
+.film-frame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 104px;
+  height: 76px;
+  margin: -38px 0 0 -52px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #0c0c0c;
+  backface-visibility: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ===== animated hero name ===== */
+@keyframes nameWave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes nameColorA {
+  0%, 100% { color: #ffffff; }
+  35% { color: #ffc2dc; }
+  70% { color: #bfeaf8; }
+}
+@keyframes nameColorB {
+  0%, 100% { color: #ff9ec4; }
+  35% { color: #ffd77a; }
+  70% { color: #6fd3f0; }
+}
+.name-letter-a { animation: nameWave 3.4s ease-in-out infinite, nameColorA 7s linear infinite; text-shadow: 0 6px 30px rgba(111,211,240,0.35); }
+.name-letter-b { animation: nameWave 3.4s ease-in-out infinite, nameColorB 7s linear infinite; text-shadow: 0 6px 30px rgba(255,158,196,0.4); }
+.stroke-pink { -webkit-text-stroke: 2px #ff9ec4; color: transparent; }
+
+
+/* ===== always-visible cursors: pink arrow normally, light-blue arrow on clickable things ===== */
+html, body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='none' stroke='%230b1536' stroke-width='4.2' stroke-linejoin='round'/%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='%23ff9ec4' stroke='%23ff9ec4' stroke-width='0.6' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto; }
+a, button, [role="button"], summary, label[for], select, input[type="range"], input[type="checkbox"], input[type="submit"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 32 32'%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='none' stroke='%230b1536' stroke-width='4.2' stroke-linejoin='round'/%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linejoin='round'/%3E%3Cpath d='M5 3 L5 25 L10.6 19.6 L14.6 28 L18.4 26.3 L14.4 18 L22 18 Z' fill='%236fd3f0' stroke='%236fd3f0' stroke-width='0.6' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, pointer;
+}
+input[type="text"], input[type="email"], input[type="search"], textarea { cursor: text; }
+
+
+/* ===== sketching animation: a pencil draws a butterfly, again and again ===== */
+@keyframes drawLoop {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  62% { stroke-dashoffset: 0; opacity: 1; }
+  90% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+@keyframes pencilRun {
+  0% { offset-distance: 0%; opacity: 1; }
+  62% { offset-distance: 100%; opacity: 1; }
+  82% { offset-distance: 100%; opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+.draw-path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: drawLoop 9s ease-in-out infinite; }
+.pencil {
+  offset-path: path("M100 92 C84 44 28 30 26 74 C25 104 66 110 100 98 C78 118 56 146 80 158 C98 168 102 128 100 100 C98 128 102 168 120 158 C144 146 122 118 100 98 C134 110 175 104 174 74 C172 30 116 44 100 92 Z");
+  offset-rotate: 0deg;
+  offset-anchor: 2px 26px;
+  animation: pencilRun 9s ease-in-out infinite;
+}
+@keyframes slashSweep {
+  0%, 62% { transform: translateX(-130%); opacity: 0; }
+  68% { opacity: 1; }
+  82% { transform: translateX(130%); opacity: 0; }
+  100% { transform: translateX(130%); opacity: 0; }
+}
+.slash { animation: slashSweep 6s ease-in-out infinite; }
+@keyframes shineSweep {
+  0%, 55% { transform: translateX(-160%) skewX(-18deg); }
+  80%, 100% { transform: translateX(260%) skewX(-18deg); }
+}
+.shine { animation: shineSweep 6.5s ease-in-out infinite; }
+@keyframes cloudDrift {
+  from { transform: translateX(-12vw); }
+  to { transform: translateX(12vw); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(0.7); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ===== robot + code interface (pure CSS animation) ===== */
+@keyframes robotFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes robotBlink { 0%, 91%, 100% { transform: scaleY(1); } 94.5% { transform: scaleY(0.08); } }
+@keyframes robotWave { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(40deg); } }
+@keyframes glowPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes jetPulse { 0%, 100% { transform: scaleX(1); opacity: 0.5; } 50% { transform: scaleX(1.3); opacity: 0.95; } }
+@keyframes chipFloat { 0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-9px) rotate(calc(var(--r, 0deg) + 2deg)); } }
+@keyframes beamBreath { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.75; } }
+.robot-float { animation: robotFloat 3.6s ease-in-out infinite; }
+.robot-eye { transform-box: fill-box; transform-origin: center; animation: robotBlink 4.6s infinite; }
+.robot-wave { transform-box: view-box; transform-origin: 117px 136px; animation: robotWave 1.5s ease-in-out infinite; }
+.glow-pulse { animation: glowPulse 1.8s ease-in-out infinite; }
+.robot-jet { transform-box: fill-box; transform-origin: center; animation: jetPulse 1.2s ease-in-out infinite; }
+.chip-float { animation: chipFloat 5s ease-in-out infinite; }
+.beam { animation: beamBreath 6s ease-in-out infinite; }
+
+/* ===== hanging name-badge swing (Currently section) ===== */
+@keyframes badgeSwing {
+  0%, 100% { transform: rotate(-2.2deg); }
+  50% { transform: rotate(2.2deg); }
+}
+.badge-swing { transform-origin: 50% 0; animation: badgeSwing 5s ease-in-out infinite; }
