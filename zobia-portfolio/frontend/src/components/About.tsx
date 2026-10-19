@@ -33,9 +33,9 @@ export default function About() {
         </Reveal>
 
         {/* Bento grid */}
-        <div className="grid auto-rows-[150px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 lg:auto-rows-[150px] lg:grid-cols-4">
           {/* Bio — big cell */}
-          <Reveal delay={0.1} y={16} className="sm:col-span-2 lg:col-span-2 lg:row-span-3">
+          <Reveal delay={0.1} y={16} className="col-span-2 lg:col-span-2 lg:row-span-3">
             <TiltCard maxTilt={5} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card p-6">
                 <div className="pointer-events-none absolute -left-8 -top-8 h-32 w-32 rounded-full bg-accent/10 blur-2xl" />
@@ -70,7 +70,7 @@ export default function About() {
           </Reveal>
 
           {/* Portrait cell */}
-          <Reveal delay={0.14} y={16} className="lg:row-span-3">
+          <Reveal delay={0.14} y={16} className="col-span-2 h-[400px] lg:col-span-1 lg:row-span-3 lg:h-auto">
             <TiltCard maxTilt={8} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card">
                 <img
@@ -87,7 +87,7 @@ export default function About() {
           </Reveal>
 
           {/* Stat: Projects */}
-          <Reveal delay={0.18} y={20} className="lg:col-start-4 lg:row-start-1">
+          <Reveal delay={0.18} y={20} className="min-h-[140px] lg:col-start-4 lg:row-start-1">
             <TiltCard maxTilt={10} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card p-5">
                 <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-accent/10 blur-xl" />
@@ -103,7 +103,7 @@ export default function About() {
           </Reveal>
 
           {/* Stat: Certificates */}
-          <Reveal delay={0.22} y={20} className="lg:col-start-4 lg:row-start-2">
+          <Reveal delay={0.22} y={20} className="min-h-[140px] lg:col-start-4 lg:row-start-2">
             <TiltCard maxTilt={10} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card p-5">
                 <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-pink/10 blur-xl" />
@@ -119,7 +119,7 @@ export default function About() {
           </Reveal>
 
           {/* Year */}
-          <Reveal delay={0.3} y={20} className="lg:col-start-4 lg:row-start-3">
+          <Reveal delay={0.3} y={20} className="col-span-2 min-h-[120px] lg:col-span-1 lg:col-start-4 lg:row-start-3">
             <TiltCard maxTilt={10} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card p-5">
                 <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-butter/15 blur-xl" />
@@ -133,7 +133,7 @@ export default function About() {
           </Reveal>
 
           {/* Competitive programming highlight — wide cell */}
-          <Reveal delay={0.26} y={20} className="sm:col-span-2 lg:col-span-2 lg:row-start-4">
+          <Reveal delay={0.26} y={20} className="col-span-2 min-h-[110px] lg:col-span-2 lg:row-start-4">
             <TiltCard maxTilt={6} className="group h-full">
               <div className="relative flex h-full items-center gap-4 overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-br from-card to-navy p-6">
                 <div className="pointer-events-none absolute -left-6 -bottom-6 h-24 w-24 rounded-full bg-purple/15 blur-2xl" />
@@ -151,7 +151,7 @@ export default function About() {
           </Reveal>
 
           {/* Education */}
-          <Reveal delay={0.34} y={20} className="lg:col-span-2 lg:row-start-4">
+          <Reveal delay={0.34} y={20} className="col-span-2 min-h-[110px] lg:col-span-2 lg:row-start-4">
             <TiltCard maxTilt={10} className="group h-full">
               <div className="relative h-full overflow-hidden rounded-2xl border border-white/[0.07] bg-card p-6">
                 <div className="pointer-events-none absolute -right-4 -bottom-4 h-16 w-16 rounded-full bg-blue/10 blur-xl" />
